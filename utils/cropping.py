@@ -2,7 +2,7 @@ import torch
 import os
 from shutil import copyfile,rmtree
 
-def cropping_images(image_class="car",force=false):
+def cropping_images(image_class="car",force=False):
     # Model
     model = torch.hub.load('ultralytics/yolov5', 'yolov5s')  # or yolov5m, yolov5l, yolov5x, custom
     cwd = os.getcwd()

@@ -34,9 +34,9 @@ def main():
     if args.e:
         fe.execute_extraction(cwd)
     if args.f != None:
-        ft.filtering_image(list(map(int,args.f)),args.force)
+        ft.filtering_image(list(map(int,args.f)),force=args.force)
     if args.c != None:
-        crp.cropping_images(image_class=args.c[0],args.force)
+        crp.cropping_images(image_class=args.c[0],force=args.force)
     if args.s != None:
         smpl.sampling(n=int(args.s[0]),force=args.force)
         
