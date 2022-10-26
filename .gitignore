@@ -4,3 +4,5 @@ src/
 frame/
 runs/
 croped_images/
+sampled/
+filtered/
