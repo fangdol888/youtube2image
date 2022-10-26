@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import utils.install_lib as ins
-import utils.downloading as dwn
-import utils.frame_extraction as fe
-import utils.filtering as ft
-import utils.cropping as crp
-import utils.sampling as smpl
+import util.install_lib as ins
+import util.downloading as dwn
+import util.frame_extraction as fe
+import util.filtering as ft
+import util.cropping as crp
+import util.sampling as smpl
 import os
 import glob
 import argparse
@@ -30,7 +30,7 @@ def main():
     if args.i:
        ins.requirement()
     if args.d:
-        dwn.downloading(txt_list)
+        dwn.downloading(cwd, txt_list)
     if args.e:
         fe.execute_extraction(cwd)
     if args.f != None:

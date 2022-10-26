@@ -1,13 +1,11 @@
 from pytube import YouTube
 import os
+import pickle
 
-import cv2
-
-def downloading(txt_list):
+def downloading(file_dir, txt_list):
+    failed=[]
     for txt in txt_list:
         file_name = os.path.basename(txt)
-        cls = file_name.split(".")[0]
-        
         save_dir = os.path.join(file_dir,"src")
         
         if os.path.exists(save_dir) == False:
@@ -25,9 +23,16 @@ def downloading(txt_list):
                     stream = yt.streams.filter(only_video=True).order_by('resolution').desc().first() #가장 화질 좋도록
                     stream.download(save_dir)
                 except:
-                    print(">>> Something is wrong, stop downloading current file...\n")
+                    print(">>> Something is wrong, stop downloading current file...")
+                    print(">>> save file name of failed link...\n")
+                    failed.append(url)
                 
                 
             print(f"< Downloading videos is finished >\n")
+            print(failed)
+            if len(failed) != 0:
+                with open('failed.txt', 'w+') as lf:
+                    lf.write('\n'.join(failed))
+                print(">> failed links are recorded in 'failed.txt'")
 
     print("Done!")
