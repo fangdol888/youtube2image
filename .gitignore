@@ -1,5 +1,7 @@
 #폴더 무시
 
+.ipynb_checkpoints/
+downloader.ipynb
 src/
 frame/
 runs/
